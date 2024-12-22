@@ -6,11 +6,12 @@
 /*   By: akbarali <akbarali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 04:03:24 by akbarali          #+#    #+#             */
-/*   Updated: 2024/12/22 04:27:39 by akbarali         ###   ########.fr       */
+/*   Updated: 2024/12/22 07:27:28 by akbarali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libraries/printf.h"
+#include "../libraries/libft.h"
 
 int	ft_handle_str(char *str)
 {

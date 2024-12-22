@@ -6,11 +6,12 @@
 /*   By: akbarali <akbarali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 04:06:11 by akbarali          #+#    #+#             */
-/*   Updated: 2024/12/22 06:19:47 by akbarali         ###   ########.fr       */
+/*   Updated: 2024/12/22 07:09:01 by akbarali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libraries/printf.h"
+#include "../libraries/libft.h"
 
 static void	ft_put_u_nbr(unsigned int nbr)
 {

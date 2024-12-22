@@ -6,11 +6,12 @@
 /*   By: akbarali <akbarali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 06:15:06 by akbarali          #+#    #+#             */
-/*   Updated: 2024/12/22 06:18:32 by akbarali         ###   ########.fr       */
+/*   Updated: 2024/12/22 07:09:23 by akbarali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libraries/printf.h"
+#include "../libraries/libft.h"
 
 int	ft_reversed_str(char *str)
 {

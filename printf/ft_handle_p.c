@@ -6,11 +6,12 @@
 /*   By: akbarali <akbarali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 03:47:10 by akbarali          #+#    #+#             */
-/*   Updated: 2024/12/22 06:19:39 by akbarali         ###   ########.fr       */
+/*   Updated: 2024/12/22 07:11:26 by akbarali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libraries/printf.h"
+#include "../libraries/libft.h"
 
 int	ft_handle_p(unsigned long address)
 {
@@ -25,12 +26,12 @@ int	ft_handle_p(unsigned long address)
 	num = (char *)malloc(((ft_hex_length(address)) + 1) * sizeof(char));
 	while (address)
 	{
-		num[i] = ft_decimal_to_hex(address % 16, "x");
+		num[i] = ft_decimal_to_hex(address % 16, 'p');
 		address = address / 16;
 		i++;
 	}
 	num[i] = '\0';
-	bytes = bytes + ft_print_reversed_str(num);
+	bytes = bytes + ft_reversed_str(num);
 	ft_free_ptr(&num);
 	return (bytes);
 }

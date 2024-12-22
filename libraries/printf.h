@@ -6,12 +6,14 @@
 /*   By: akbarali <akbarali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 03:17:02 by akbarali          #+#    #+#             */
-/*   Updated: 2024/12/22 06:18:56 by akbarali         ###   ########.fr       */
+/*   Updated: 2024/12/22 07:30:31 by akbarali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
-#define FT_PRINTF_H
+# define FT_PRINTF_H
+
+// LIBRARIES
 #include <stdarg.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -30,5 +32,7 @@ int ft_dec_length(long int nbr);
 void ft_free_ptr(char **ptr);
 int ft_hex_length(unsigned long nbr);
 int ft_reversed_str(char *str);
+int ft_handle_d(int c);
+int ft_handle_x(unsigned int nbr, char type);
 
 #endif

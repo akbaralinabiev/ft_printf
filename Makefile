@@ -1,46 +1,38 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: akbarali <akbarali@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/12/22 06:35:12 by akbarali          #+#    #+#              #
-#    Updated: 2024/12/22 06:35:13 by akbarali         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = libftprintf.a
+LIBFT = libft
+SOURCES = printf/ft_printf.c \
+          printf/ft_handle_c.c \
+          printf/ft_handle_p.c \
+          printf/ft_handle_percent.c \
+          printf/ft_handle_str.c \
+          printf/ft_handle_u.c \
+          printf/ft_decimal_to_hex.c \
+          printf/ft_dec_length.c \
+          printf/ft_free_ptr.c \
+          printf/ft_hex_length.c \
+          printf/ft_reversed_str.c \
+          printf/ft_handle_d.c \
+          printf/ft_handle_x.c
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+OBJS = $(SOURCES:.c=.o)
+all: $(NAME)
 
-SOURCES = ft_printf.c \
-	ft_handle_c \
-	ft_handle_p.c \
-	ft_handle_percent.c \
-	ft_handle_str.c \
-	ft_handle_u.c \
-	ft_decimal_to_hex.c \
-	ft_dec_length.c \
-	ft_free_ptr.c \
-	ft_hex_length.c \
-	
+makelibft:
+	make -C $(LIBFT) bonus
+	cp $(LIBFT)/libft.a .
+	mv libft.a $(NAME)
 
-OBJ = $(SOURCES:.c=.o)
-
-LIBFTPRINTF_A = libftprintf.a
-
-$(LIBFTPRINTF_A): $(OBJ)
-	ar rcs $(LIBFTPRINTF_A) $(OBJ)
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+$(NAME): $(OBJS) | makelibft
+	ar rcs $(NAME) $(OBJS)
 
 clean:
-	rm -f $(OBJ)
+	make -C $(LIBFT) clean
+	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(LIBFTPRINTF_A)
+	make -C $(LIBFT) fclean
+	rm -f $(NAME)
 
-re: fclean $(LIBFTPRINTF_A)
+re: fclean all
+
+.PHONY: all makelibft clean fclean re

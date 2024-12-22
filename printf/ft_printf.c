@@ -6,11 +6,11 @@
 /*   By: akbarali <akbarali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 04:44:30 by anabiev           #+#    #+#             */
-/*   Updated: 2024/12/22 06:34:44 by akbarali         ###   ########.fr       */
+/*   Updated: 2024/12/22 07:28:42 by akbarali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libraries/printf.h"
+#include "../libraries/printf.h"
 
 static int	ft_check_args(va_list arg, char c)
 {

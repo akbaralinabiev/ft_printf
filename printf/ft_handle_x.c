@@ -6,7 +6,7 @@
 /*   By: akbarali <akbarali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 04:22:31 by akbarali          #+#    #+#             */
-/*   Updated: 2024/12/22 06:20:08 by akbarali         ###   ########.fr       */
+/*   Updated: 2024/12/22 07:26:35 by akbarali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_handle_x(unsigned int nbr, char type)
 		i++;
 	}
 	num[i] = '\0';
-	bytes = ft_print_reversed_str(num);
+	bytes = ft_reversed_str(num);
 	ft_free_ptr(&num);
 	return (bytes);
 }
