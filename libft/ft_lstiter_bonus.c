@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anabiev <anabiev@student.42.fr>            +#+  +:+       +#+        */
+/*   By: akbarali <akbarali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 17:40:31 by anabiev           #+#    #+#             */
-/*   Updated: 2024/12/17 17:55:31 by anabiev          ###   ########.fr       */
+/*   Updated: 2024/12/22 03:14:15 by akbarali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libraries/libft.h"
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {

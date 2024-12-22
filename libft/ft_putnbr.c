@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akbarali <akbarali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 21:54:29 by anabiev           #+#    #+#             */
-/*   Updated: 2024/12/22 03:15:26 by akbarali         ###   ########.fr       */
+/*   Created: 2024/12/22 04:14:35 by akbarali          #+#    #+#             */
+/*   Updated: 2024/12/22 04:20:28 by akbarali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *nptr)
-{
-	int	i;
-	int	sign;
-	int	result;
+#include "../libraries/libft.h"
 
-	i = 0;
-	sign = 1;
-	result = 0;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
-		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
-	{
-		if (nptr[i] == '-')
-			sign = -1;
-		i++;
-	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		result = result * 10 + (nptr[i] - '0');
-		i++;
-	}
-	return (result * sign);
+int ft_putnbr(int nbr)
+{
+     int sum;
+     
+     sum = 0;
+     if (nbr < 0)
+     {
+          write(1, "-", 1);
+          nbr = -nbr;
+     }
+
+     if (nbr >= 10)
+     {
+          ft_putnbr(nbr / 10);
+     }
+
+     char digit = nbr % 10 + '0';
+     write(1, &digit, 1);
+
+     return (sum);
 }

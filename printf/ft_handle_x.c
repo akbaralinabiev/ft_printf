@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_handle_x.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akbarali <akbarali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 21:54:29 by anabiev           #+#    #+#             */
-/*   Updated: 2024/12/22 03:15:26 by akbarali         ###   ########.fr       */
+/*   Created: 2024/12/22 04:22:31 by akbarali          #+#    #+#             */
+/*   Updated: 2024/12/22 06:20:08 by akbarali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *nptr)
+#include "../libraries/printf.h"
+
+int	ft_handle_x(unsigned int nbr, char type)
 {
-	int	i;
-	int	sign;
-	int	result;
+	char	*num;
+	int		bytes;
+	int		i;
 
 	i = 0;
-	sign = 1;
-	result = 0;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
-		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
+	if (!nbr)
+		return (write(1, "0", sizeof(char) * 1));
+	num = (char *)malloc((ft_hex_length(nbr) + 1) * sizeof(char));
+	while (nbr)
 	{
-		if (nptr[i] == '-')
-			sign = -1;
+		num[i] = '\0';
+		nbr = nbr / 16;
 		i++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		result = result * 10 + (nptr[i] - '0');
-		i++;
-	}
-	return (result * sign);
+	num[i] = '\0';
+	bytes = ft_print_reversed_str(num);
+	ft_free_ptr(&num);
+	return (bytes);
 }

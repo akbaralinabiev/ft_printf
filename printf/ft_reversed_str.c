@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_reversed_str.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akbarali <akbarali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 21:54:29 by anabiev           #+#    #+#             */
-/*   Updated: 2024/12/22 03:15:26 by akbarali         ###   ########.fr       */
+/*   Created: 2024/12/22 06:15:06 by akbarali          #+#    #+#             */
+/*   Updated: 2024/12/22 06:18:32 by akbarali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *nptr)
+#include "../libraries/printf.h"
+
+int	ft_reversed_str(char *str)
 {
 	int	i;
-	int	sign;
-	int	result;
+	int	bytes;
 
-	i = 0;
-	sign = 1;
-	result = 0;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
-		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
-	{
-		if (nptr[i] == '-')
-			sign = -1;
-		i++;
-	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		result = result * 10 + (nptr[i] - '0');
-		i++;
-	}
-	return (result * sign);
+	bytes = ft_strlen(str);
+	i = bytes - 1;
+	while (i >= 0)
+		write (1, &str[i--], sizeof(char) * 1);
+	return (bytes);
 }

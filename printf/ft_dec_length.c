@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_dec_length.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akbarali <akbarali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 21:54:29 by anabiev           #+#    #+#             */
-/*   Updated: 2024/12/22 03:15:26 by akbarali         ###   ########.fr       */
+/*   Created: 2024/12/22 05:52:19 by akbarali          #+#    #+#             */
+/*   Updated: 2024/12/22 06:19:09 by akbarali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *nptr)
-{
-	int	i;
-	int	sign;
-	int	result;
+#include "../libraries/printf.h"
 
-	i = 0;
-	sign = 1;
-	result = 0;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
-		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
+int	ft_dec_length(long int nbr)
+{
+	int  len;
+
+	len = 0;
+	if (nbr <= 0)
+		len++;
+	while (nbr)
 	{
-		if (nptr[i] == '-')
-			sign = -1;
-		i++;
+		nbr = nbr / 10;
+		len++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		result = result * 10 + (nptr[i] - '0');
-		i++;
-	}
-	return (result * sign);
+	return (len);
 }
